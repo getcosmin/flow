@@ -1,0 +1,122 @@
+/* -------------------- 
+
+CSS Library - Flow
+
+-------------------- */
+
+:rooter {
+
+    /* -------------------- 
+    01.1. - COLOR THEMES 
+    -------------------- */ 
+
+    --color-note: #171a1c;
+    --color-white: #ffffff;
+    --color-accent: #1478ff;
+    --color-accent-05: #f2f5fc;
+    --color-primary: #121518;
+    --color-primary-90: #23277a;
+    --color-primary-80: #3a4146;
+    --color-primary-70: #515b62;
+    --color-primary-60: #68757e;
+    --color-primary-50: #818e97;
+    --color-primary-40: #9da7ae;
+    --color-primary-30: #b9c0c5;
+    --color-primary-20: #d5d9dc;
+    --color-primary-10: #f1f2f3;
+
+    /* -------------------- 
+    01.2. - FONT VARIABLES
+    -------------------- */ 
+    
+    --font-theme: 'Inconsolata', monospace;
+    
+    --font-size-h1: clamp(3.2rem, 1rem + 10vw, 5.6rem);
+    --font-size-h2: clamp(3.2rem, 1rem + 10vw, 5.6rem);
+    --font-size-h3: clamp(2.4rem, 1rem + 10vw, 4.8rem);
+    --font-size-h4: clamp(2.0rem, 1rem + 10vw, 4.0rem);
+    --font-size-h5: clamp(1.8rem, 1rem + 10vw, 2.0rem);
+    --font-size-h6: clamp(1.8rem, 1rem + 10vw, 2.0rem);
+
+    --paragraph-line-height: 1.5;
+    --title-line-height: 1.2;
+
+    /* -------------------- 
+    01.3. - RESPONSIVE BREAKPOINTS
+    -------------------- */ 
+    
+    --screen-size-flow: min(90vw, 1440px);
+
+    /* -------------------- 
+    01.4. - MARGINS AND PADDINGS
+    -------------------- */ 
+
+    --margin-space: 3.2rem 2rem;    
+}
+
+    /* -------------------- 
+    02.0. - GENERAL CSS
+    -------------------- */ 
+
+    a {
+        text-decoration: none;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        line-height: var(--title-line-height);
+    }
+    h1 {
+        font-size: var(--font-size-h1);
+    }
+    h2 {
+        font-size: var(--font-size-h2);
+    }
+    h3 {
+        font-size: var(--font-size-h3);
+    }
+    h4 {
+        font-size: var(--font-size-h4);
+    }
+    h5 {
+        font-size: var(--font-size-h5);
+    }
+    h6 {
+        font-size: var(--font-size-h6);
+    }
+
+    button {
+        line-height: 1;
+        padding: 1.2rem 2.4rem;
+
+    }
+
+
+    .button-primary {
+        background-color: var(--color-accent);
+        color: var(--color-white);
+    }
+    .button-secondary {
+        border: 1px solid var(--color-primary-10);
+    }
+    .grid {
+        display: grid;
+    }
+    .none {
+        display: none;
+    }
+    .text-center {
+        text-align: center;
+    }
+
+    /* -------------------- 
+    03.0. - FLEX
+    -------------------- */ 
+
+    .flex {
+        display: flex;
+    }
+    .end {
+        justify-content: flex-end;
+    }
+    .wrap {
+        flex-wrap: wrap;
+    }
