@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+
+import IndexView from './views/IndexView';
+import AccountLoginView from './views/AccountLoginView';
+import SoftwareMainView from './views/private/SoftwareMainView';
+import TaskManagerView from './views/private/TaskManagerView';
+
+import NavigationMain from './components/NavigationMain';
+import Footer from './components/Footer';
+
+import './assets/css/workstation.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavigationMain />
+      <Routes>
+        <Route
+          path="/"
+          element= {<IndexView />}
+        />
+
+        <Route
+          path="/login"
+          element= {<AccountLoginView />}
+        />
+
+        <Route
+          path="/software"
+          element= {<SoftwareMainView />}
+        />
+
+        <Route
+          path="/software/tasks"
+          element= {<TaskManagerView />}
+        />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 
