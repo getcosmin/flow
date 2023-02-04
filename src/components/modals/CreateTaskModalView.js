@@ -1,6 +1,4 @@
-import { useState, useRef, Fragment } from 'react';
-import iconPriorityHigh from '../../assets/img/icons/iconPriorityHigh';
-
+import { useState, useRef } from 'react';
 
 export default function CreateTaskModalView({ toggleCreateTaskModal }) {
     const [hasCategoryEnabled, setCategoryEnabled] = useState(false);
