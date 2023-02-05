@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="https://getcosmin.dev/assets/projects/img/popcorn-logo-getcosmindev.svg" alt="Logo" width="192" height="auto">
+    <img src="https://getcosmin.dev/assets/icons/flow-software-white-logo.svg" alt="Logo" width="192" height="auto">
   </a>
 
 </div>
@@ -30,17 +30,17 @@
 
 ## 01  - About
 
-Popcorn is a personal website project, built with React and connected to a movie API (The Movie DB).
+Flow is a Task Manager Project for my frontend portfolio.
 
 ### Built With
 
-For this website I've used React, JavaScript, HTML5 and CSS.
+For this website I've used React, JavaScript, Node.js, Express, HTML & CSS and a MySQL database.
 
 ## 02  - Functionality 
 
 <ul>
-  <li>Enable users to search for a movie title</li>
-  <li>Discover movies on the Flux</li>
-  <li>Filter movies on Flux, based on genre (More to come...)</li>
-  <li>Watch movie trailers
+  <li>Account Registration</li>
+  <li>Account Login</li>
+  <li>View Tasks from database</li>
+  <li>Insert Tasks to database</li>
 </ul>
