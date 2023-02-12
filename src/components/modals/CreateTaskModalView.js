@@ -70,7 +70,7 @@ export default function CreateTaskModalView({ toggleCreateTaskModal }) {
                 endDate: taskEndDateRef.current.value,
             };
 
-            TaskManagerValidation.checkInput(newTask.title);
+            TaskManagerValidation.checkInputTitle(newTask.title);
 
             const response = await fetch('/insert/new-task', {
                 method: 'POST',
@@ -86,7 +86,7 @@ export default function CreateTaskModalView({ toggleCreateTaskModal }) {
     }
 
     class TaskManagerValidation {
-        static checkInput(variable) {
+        static checkInputTitle(variable) {
             if (variable.length > 6) {
                 console.log('Input is valid.');
             } else {

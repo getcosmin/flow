@@ -8,8 +8,8 @@ export default function HeroSectionLarge({ content }) {
                     <h1>{content.title}</h1>
                     <p>{content.subtitle}</p>
                 </header>
-                <Link to="/software/tasks">
-                    <div role="button" className="button-primary">{content.cta}</div>
+                <Link to="/software/tasks" role="button" className="button-primary">
+                    {content.cta}
                 </Link>
             </div>
         </section>

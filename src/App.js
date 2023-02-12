@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import IndexView from './views/IndexView';
+import IndexView from './views/public/IndexView';
 import AccountLoginView from './views/AccountLoginView';
 import SoftwareMainView from './views/private/SoftwareMainView';
 import TaskManagerView from './views/private/TaskManagerView';

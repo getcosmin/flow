@@ -1,4 +1,5 @@
-import HeroSectionLarge from "../components/HeroSectionLarge"
+import HeroSectionLarge from '../../components/HeroSectionLarge';
+import ArticleSection from './components/ArticleSection';
 
 export default function IndexView() {
     return (
@@ -10,6 +11,7 @@ export default function IndexView() {
                     cta: 'Try Flow',
                 }}
             />
+            <ArticleSection />
         </>
     );
 }
