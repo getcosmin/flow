@@ -152,8 +152,8 @@ label {
 }
 input, textarea, .select-options, .select-options,.task-select {
     border: 1px solid var(--color-primary-100);
-    padding: var(--spacing-01);
-    min-height: 2.4rem;
+    padding: 0 var(--spacing-01);
+    min-height: 4rem;
     min-width: fit-content;
     font-family: var(--font-primary);
     font-size: var(--font-text-normal);
@@ -564,14 +564,16 @@ TaskManager Create View
     margin-right: var(--spacing-01);
 }
 .dropdown-list > span {
-    margin-left: var(--spacing-01);
-    padding: var(--spacing-01) 0;
+    padding: 0 var(--spacing-02);
     font-size: var(--font-text-normal);
-    margin-block: var(--spacing-02);
+    height: 4.2rem;
     display: flex;
     gap: 0.4rem;
     align-items: center;
     cursor: pointer;
+}
+.dropdown-list > span:hover {
+    background-color: var(--color-accent-100);
 }
 .select-options > div {
     display: none;

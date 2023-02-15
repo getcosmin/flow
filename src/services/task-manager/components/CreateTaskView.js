@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react';
+import FormFieldset from '../../../components/FormFieldset';
 import InputSelectList from '../../../components/InputSelectList';
+import InputSelectPriority from '../../../components/InputSelectPriority';
 import InputType from '../../../components/InputType';
 
 export default function CreateTaskModalView({ toggleCreateTaskModal }) {
@@ -67,11 +69,11 @@ export default function CreateTaskModalView({ toggleCreateTaskModal }) {
                 title: taskTitleRef.current.value,
                 category: taskCategoryRef.current.value,
                 description: taskDescriptionRef.current.value,
-                priority: taskPriorityRef.current.value,
+                priority: taskPriorityRef.current.innerText,
                 startDate: todayDate,
                 endDate: taskEndDateRef.current.value,
             };
-
+            console.log(newTask);
             TaskManagerValidation.checkInputTitle(newTask.title);
 
             const response = await fetch('/insert/new-task', {
@@ -109,9 +111,7 @@ export default function CreateTaskModalView({ toggleCreateTaskModal }) {
                     </div>
                 </div>
                 <form>
-                    <fieldset>
-                        <legend>01 - SUMMARY</legend>
-
+                    <FormFieldset legend='01 - SUMMARY'>
                         <InputType
                            content={{
                                 inputID: 'task-title',
@@ -120,7 +120,6 @@ export default function CreateTaskModalView({ toggleCreateTaskModal }) {
                                 placeholder: 'Name the task...',
                            }}
                         />
-
                         <InputSelectList
                             content={{
                                 inputID: 'task-category',
@@ -129,16 +128,14 @@ export default function CreateTaskModalView({ toggleCreateTaskModal }) {
                                 inputRef: taskCategoryRef,
                                 dropdownState: hasCategoryEnabled,
                             }}
-                            actions={{
+                            action={{
                                 toggleDropdown: TasksController.toggleCategory,
                                 selectDropdownValue: TasksController.selectCategory,
                             }}
                         />
+                    </FormFieldset>
 
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>02 - PLANNING</legend>
+                    <FormFieldset legend='02 - Planning'>
                         <div className="interface-group">
                             <label htmlFor="task-description">Description</label>
                             <div className='input-style'>
@@ -152,55 +149,23 @@ export default function CreateTaskModalView({ toggleCreateTaskModal }) {
                             </div>
                         </div>
 
-                        <div className="interface-group">
-                            <label htmlFor="task-priority">Priority</label>
-                            <div role="button input-style" className='input-style' onClick={TasksController.togglePriority}>
-                                <div className="task-input task-select" id="task-priority" >
-                                    {priorityIcon ?
-                                        <img src={priorityIcon} height="24" width="24"/>
-                                        : null
-                                    }
-                                    <input
-                                        className="input-style-none"
-                                        value={priorityValue}
-                                        ref={taskPriorityRef}
-                                        required
-                                    />
-                                </div>
-                                <svg className="dropdown-icon" height="24" width="24">
-                                    <path d="m12 15.4-6-6L7.4 8l4.6 4.6L16.6 8 18 9.4Z"/>
-                                </svg>
-                            </div>
-                            <div className="dropdown-list"
-                                 data-active={hasPriorityEnabled}
-                                 onClick={TasksController.selectPriority}>
+                        <InputSelectPriority
+                            content={{
+                                inputID: 'task-category',
+                                label: 'Category',
+                                inputValue: priorityValue,
+                                inputRef: taskPriorityRef,
+                                priorityIcon: priorityIcon,
+                                dropdownState: hasPriorityEnabled,
+                            }}
+                            action={{
+                                toggleDropdown: TasksController.togglePriority,
+                                selectDropdownValue: TasksController.selectPriority,
+                            }}
+                        />
+                    </FormFieldset>
 
-                                <span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24">
-                                        <path d="M7.4,15.7,6,14.3l6-6,6,6-1.4,1.4-4.35-4.35L12,11.1Z"/>
-                                    </svg>
-                                    High
-                                </span>
-                                <span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24">
-                                        <rect x="6" y="11" width="12" height="2"/>
-                                    </svg>
-                                    Normal
-                                </span>
-                                <span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24">
-                                        <path d="M12,12.9l.25-.25L16.6,8.3,18,9.7l-6,6-6-6L7.4,8.3Z"/>
-                                    </svg>
-                                    Low
-                                </span>
-
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>03 - FINAL</legend>
-
+                    <FormFieldset legend='03 - FINAL'>
                         <div className="interface-group">
                             <label htmlFor="task-priority">Deadline</label>
                             <div role="button" className='input-style'>
@@ -213,11 +178,10 @@ export default function CreateTaskModalView({ toggleCreateTaskModal }) {
                                 />
                             </div>
                         </div>
+                    </FormFieldset>
 
-                    </fieldset>
                     <div className="form-bottom-nav">
                         <input type="submit" className="button-primary" onClick={TaskManager.createTask}/>
-
                     </div>
                 </form>
             </div>

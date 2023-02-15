@@ -1,8 +1,8 @@
-export default function InputSelectList({ actions, content }) {
+export default function InputSelectList({ action, content }) {
     return (
         <div className="interface-group">
         <label htmlFor="task-category">{content.label}</label>
-        <div role="button" className='input-style' onClick={actions.toggleDropdown}>
+        <div role="button" className='input-style' onClick={action.toggleDropdown}>
             <input
                 required
                 ref={content.inputRef}
@@ -17,7 +17,7 @@ export default function InputSelectList({ actions, content }) {
         </div>
         <div className="dropdown-list"
              data-active={content.dropdownState}
-             onClick={actions.selectDropdownValue}>
+             onClick={action.selectDropdownValue}>
 
             <span>Marketing</span>
             <span>Human Resources</span>
