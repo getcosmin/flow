@@ -203,7 +203,10 @@ input, textarea, .select-options, .select-options,.task-select {
 .headline > p {
     font-size: var(--font-text-large);
 }
-
+.headline-small {
+    font-size: var(--font-heading5);
+    margin-block: var(--spacing-02) var(--spacing-04);
+}
 /* -------------------- 
 NAVBAR
 -------------------- */
@@ -582,7 +585,6 @@ TaskManager Create View
     margin-top: var(--spacing-01);
     border: 1px solid var(--color-primary-100);
     background-color: var(--color-primary-000);
-    position: absolute;
     margin: var(--spacing-01);
     margin-left: calc (-1 * var(--spacing-01));
 }

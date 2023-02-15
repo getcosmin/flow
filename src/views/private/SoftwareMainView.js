@@ -1,17 +1,12 @@
-import BreadcrumbList from "../../components/BreadcrumbList";
-import NavigationSide from "../../components/NavigationSide";
+import NavigationSideMenu from '../../components/NavigationSideMenu';
+import HeadlineSmall from '../../services/components/HeadlineSmall';
 
 export default function NebulaSoftwareView() {
     return (
         <section className="workview">
-            <NavigationSide/>
+            <NavigationSideMenu />
             <div className="wrapper">
-                <BreadcrumbList
-                    content = {{
-                        path01: 'Software',
-                    }}
-                />
-                <h2>Welcome to WorkStation.</h2>
+                <HeadlineSmall title='Dashboard' />
             </div>
         </section>
     );
