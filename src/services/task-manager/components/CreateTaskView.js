@@ -1,4 +1,6 @@
 import { useState, useRef } from 'react';
+import InputSelectList from '../../../components/InputSelectList';
+import InputType from '../../../components/InputType';
 
 export default function CreateTaskModalView({ toggleCreateTaskModal }) {
     const [hasCategoryEnabled, setCategoryEnabled] = useState(false);
@@ -110,46 +112,29 @@ export default function CreateTaskModalView({ toggleCreateTaskModal }) {
                     <fieldset>
                         <legend>01 - SUMMARY</legend>
 
-                        <div className="interface-group">
-                            <label htmlFor="task-title">Title</label>
-                            <div className='input-style'>
-                                <input
-                                    required
-                                    ref={taskTitleRef}
-                                    type="text"
-                                    className="task-input"
-                                    placeholder="What's the name of the task?"
-                                    id="task-title"
-                                />
-                            </div>
-                        </div>
+                        <InputType
+                           content={{
+                                inputID: 'task-title',
+                                label: 'Title',
+                                inputRef: taskTitleRef,
+                                placeholder: 'Name the task...',
+                           }}
+                        />
 
-                        <div className="interface-group">
-                            <label htmlFor="task-category">Category</label>
-                            <div role="button" className='input-style' onClick={TasksController.toggleCategory}>
-                                <input
-                                    required
-                                    ref={taskCategoryRef}
-                                    className="task-input"
-                                    placeholder="Which department?"
-                                    id="task-category"
-                                    value={categoryValue}
-                                />
-                                <svg className="dropdown-icon" height="24" width="24">
-                                    <path d="m12 15.4-6-6L7.4 8l4.6 4.6L16.6 8 18 9.4Z"/>
-                                </svg>
-                            </div>
-                            <div className="dropdown-list"
-                                 data-active={hasCategoryEnabled}
-                                 onClick={TasksController.selectCategory}>
+                        <InputSelectList
+                            content={{
+                                inputID: 'task-category',
+                                label: 'Category',
+                                inputValue: categoryValue,
+                                inputRef: taskCategoryRef,
+                                dropdownState: hasCategoryEnabled,
+                            }}
+                            actions={{
+                                toggleDropdown: TasksController.toggleCategory,
+                                selectDropdownValue: TasksController.selectCategory,
+                            }}
+                        />
 
-                                <span>Marketing</span>
-                                <span>Human Resources</span>
-                                <span>Sales</span>
-                                <span>Design</span>
-
-                            </div>
-                        </div>
                     </fieldset>
 
                     <fieldset>

@@ -1,7 +1,7 @@
 import TaskManagerTableRow from './elements/TaskManagerTableRow';
-import TaskManagerTableRowMobile from './elements/TaskManagerTableRowMobile';
 import TaskManagerTableHeader from './elements/TaskManagerTableHeader';
 import TaskManagerTableHeaderMobile from './elements/TaskManagerTableHeaderMobile';
+import TaskManagerTableRowMobile from './elements/TaskManagerTableRowMobile';
 
 export default function TaskManagerTable({ viewTasks }) {
     return (
