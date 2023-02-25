@@ -14,32 +14,40 @@
 
     --font-primary: 'Inter';
 
+
+    --color-flow-bg-success: rgb(255, 60, 60);
+    --color-flow-bg-danger: rgb(255, 60, 60); 
+    --color-flow-bg-warning: rgb(255, 200, 60);
+    --color-flow-bg-note: rgb(255, 60, 60);
+
     --color-text: #e3e5e8;
     --color-side: rgba(255, 255, 255, 0.1);
-    --color-primary-900: #0d0f12;
-    --color-primary-800: #171a1e;
-    --color-primary-700: #2f353d;
-    --color-primary-600: #434d5a;
-    --color-primary-500: #5e6977;
-    --color-primary-400: #778089;
-    --color-primary-300: #9399a1;
-    --color-primary-200: #c8cbce;
-    --color-primary-100: #e3e5e8;
-    --color-primary-050: #f2f5f7;
-    --color-primary-000: #ffffff;
+    --flow-color-primary-900: #0d0f12;
+    --flow-color-primary-800: #171a1e;
+    --flow-color-primary-700: #2f353d;
+    --flow-color-primary-600: #434d5a;
+    --flow-color-primary-500: #5e6977;
+    --flow-color-primary-400: #778089;
+    --flow-color-primary-300: #9399a1;
+    --flow-color-primary-200: #c8cbce;
+    --flow-color-primary-100: #e3e5e8;
+    --flow-color-primary-050: #f2f5f7;
+    --flow-color-primary-000: #ffffff;
 
-    --color-primary-900-60: rgb(13 15 18 / 60%);
-    --color-primary-900-40: rgb(13 15 18 / 40%);
+    --flow-color-primary-900-60: rgb(13 15 18 / 60%);
+    --flow-color-primary-900-40: rgb(13 15 18 / 40%);
+
+    --flow-weight-title: 600;
 
     --color-alert-red: rgb(200 60 60);
     --color-alert-yellow: rgb(200 60 60);
     --color-alert-green: rgb(200 60 60);
 
-    --color-accent: rgb(40 100 255);
-    --color-accent-100: rgb(0, 100, 230, 0.1);
+    --flow-color-accent: rgb(13, 15, 18);
+    --flow-color-accent-100: rgb(13, 15, 18, 0.1);
 
-    --font-heading1: clamp(4rem,4rem + 1vw,9.6rem);
-    --font-heading2: clamp(3.2rem, 3.2rem + 0.8vw, 6.4rem);
+    --font-heading1: clamp(2.4rem, 2.0rem + 1vw, 4.8rem);
+    --font-heading2: clamp(2.4rem, 2.0rem + 1vw, 4.8rem);
     --font-heading3: clamp(1.6rem, 1.6rem + 0.2vw, 2rem);
     --font-heading4: clamp(2.0rem, 2.0rem + 1vw, 4.0rem);
     --font-heading5: clamp(1.6rem, 1.6rem + 1vw, 2.4em);
@@ -65,7 +73,10 @@
 }
 
 p, h1, h2, h3, h4, legend {
-    color: var(--color-primary-900);
+    color: var(--flow-color-primary-900);
+}
+h1, h2 {
+    font-weight: var(--flow-weight-title);
 }
 p, span, legend, tr {
     font-size: var(--font-text-normal);
@@ -73,9 +84,7 @@ p, span, legend, tr {
 .table-row > * {
     font-size: var(--font-text-small);
 }
-header {
-    margin-block: var(--spacing-04);
-}
+
 h1 {
     font-size: var(--font-heading1);
     margin-block: 0 var(--spacing-01);
@@ -92,51 +101,10 @@ body {
     margin:0;
 }
 button {
-    border: none;
-}
-.list-none {
-    margin-block: 0;
-    margin-inline: 0;
-    list-style: none;
-    padding-inline: 0;
+    border: 1px solid transparent;
 }
 input {
     border: none;
-}
-.breadcrumb-list {
-    font-size: var(--font-text-small);
-    display: flex;
-    margin: var(--spacing-04) 0 -0.4rem 0;
-    list-style-type: none;
-    padding-inline-start: 0;
-}
-.breadcrumb-list > li {
-    margin-right: var(--spacing-01);
-}
-.breadcrumb-list > li:nth-child(1)::before {
-    content: none;
-}
-.breadcrumb-list > li:last-of-type {
-    color: var(--color-primary-900);
-}
-.breadcrumb-link {
-    color: var(--color-primary-500);
-}
-.breadcrumb-link:hover {
-    color: var(--color-accent);
-}
-.breadcrumb-list > li::before {
-    content: '/';
-    margin-right: var(--spacing-01);
-}
-
-.wrapper {
-    margin-inline: var(--spacing-02);
-}
-.wrapper-view {
-    margin-right: var(--spacing-02);
-    margin-left: 7.2rem;
-    min-height: 100vh;
 }
 html {
     font-family: var(--font-primary);
@@ -151,26 +119,80 @@ label {
     margin-block: var(--spacing-03) var(--spacing-01);
 }
 input, textarea, .select-options, .select-options,.task-select {
-    border: 1px solid var(--color-primary-100);
+    border: 1px solid var(--flow-color-primary-100);
     padding: 0 var(--spacing-01);
     min-height: 4rem;
     min-width: fit-content;
     font-family: var(--font-primary);
     font-size: var(--font-text-normal);
 }
+.list-none {
+    margin-block: 0;
+    margin-inline: 0;
+    list-style: none;
+    padding-inline: 0;
+}
+
+.breadcrumb-list {
+    font-size: var(--font-text-small);
+    display: flex;
+    margin: var(--spacing-04) 0 -0.4rem 0;
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+.breadcrumb-list > li {
+    margin-right: var(--spacing-01);
+}
+.breadcrumb-list > li:nth-child(1)::before {
+    content: none;
+}
+.breadcrumb-list > li:last-of-type {
+    color: var(--flow-color-primary-900);
+}
+.breadcrumb-link {
+    color: var(--flow-color-primary-500);
+}
+.breadcrumb-link:hover {
+    color: var(--flow-color-accent);
+}
+.breadcrumb-list > li::before {
+    content: '/';
+    margin-right: var(--spacing-01);
+}
+
+.wrapper {
+    margin-inline: var(--spacing-02);
+}
+.wrapper-view {
+    margin-right: var(--spacing-02);
+    margin-left: 7.2rem;
+    min-height: 100vh;
+}
+.margin-auto {
+    margin: auto;
+}
+.text-center {  
+    text-align: center;
+}
 .input {
     min-width: -webkit-fill-available;
 }
-.button-primary {
+.button {
     transition: 200ms ease-in;
     display: block;
     font-size: var(--font-text-small);
-    background-color: var(--color-accent);
     border-radius: var(--radius-small);
-    color: var(--color-primary-000);
     padding: var(--button-pading);
     margin-block: var(--spacing-01);
     width: max-content;
+}
+.button-primary {
+    background-color: var(--flow-color-accent);
+    color: var(--flow-color-primary-000);
+}
+.button-secondary {
+    border: 1px solid var(--flow-color-accent);
+    color: var(--flow-color-accent);
 }
 .button-primary:hover {
     opacity: 0.9;
@@ -179,10 +201,10 @@ input, textarea, .select-options, .select-options,.task-select {
     width: -webkit-fill-available;
 }
 .main-logo-mark {
-    fill: var(--color-accent);
+    fill: var(--flow-color-accent);
 }
 .main-logo-word {
-    fill: var(--color-primary-900);
+    fill: var(--flow-color-primary-900);
 }
 .auth {
     margin-block: var(--spacing-06);
@@ -201,7 +223,7 @@ input, textarea, .select-options, .select-options,.task-select {
     margin-block-end: 0;
 }
 .headline > p {
-    font-size: var(--font-text-large);
+    font-size: var(--font-text-normal);
 }
 .headline-small {
     font-size: var(--font-heading5);
@@ -211,7 +233,7 @@ input, textarea, .select-options, .select-options,.task-select {
 NAVBAR
 -------------------- */
 .navigation {
-    border-bottom: 1px solid var(--color-primary-100);
+    border-bottom: 1px solid var(--flow-color-primary-100);
 }
 .navbar {
     padding: var(--spacing-01) 0;
@@ -223,14 +245,14 @@ NAVBAR
 }
 .navigation-link {
     font-size: var(--font-text-small);
-    color: var(--color-primary-900);
+    color: var(--flow-color-primary-900);
     display: flex;
     align-items: center;
     gap: var(--spacing-01);
 }
 .navigation-link:hover {
-    color: var(--color-accent);
-    fill: var(--color-accent);
+    color: var(--flow-color-accent);
+    fill: var(--flow-color-accent);
 }
 .main-logo {
     margin-block: var(--spacing-01);
@@ -238,7 +260,7 @@ NAVBAR
     height: auto;
 }
 .grayscale {
-    fill: var(--color-primary-500);
+    fill: var(--flow-color-primary-500);
 }
 .navigation-menu {
     margin: 0 auto 0 var(--spacing-03);
@@ -246,14 +268,14 @@ NAVBAR
     gap: var(--spacing-02);
 }
 .navigation-menu > a {
-    color: var(--color-primary-900);
+    color: var(--flow-color-primary-900);
     font-size: var(--font-text-small);
 }
 .navigation-menu > a:hover {
-    color: var(--color-accent);
+    color: var(--flow-color-accent);
 }
 .navbar-active {
-    background-color: var(--color-primary-900);
+    background-color: var(--flow-color-primary-900);
 }
 .navbar-container {
     display: flex;
@@ -277,6 +299,20 @@ NAVBAR
     height: -webkit-fill-available;
     overflow-y: scroll;
 }
+/* --------------------
+FEATURED Section CSS
+-------------------- */
+
+.featured-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+}
+.feature-box {
+    width: 100%;
+}
+
+
 /* -------------------- 
 ARTICLE Section CSS
 -------------------- */
@@ -289,7 +325,7 @@ ARTICLE Section CSS
     gap: var(--spacing-02);
 }
 .card-art {
-    border: 1px solid var(--color-primary-100);
+    border: 1px solid var(--flow-color-primary-100);
     border-radius: var(--radius-normal);
 }
 .card-art-link {
@@ -304,8 +340,8 @@ ARTICLE Section CSS
     justify-content: flex-end;
 }
 .card-art-link:hover {
-    fill: var(--color-accent);
-    color: var(--color-accent);
+    fill: var(--flow-color-accent);
+    color: var(--flow-color-accent);
 }
 .card-art-body, .card-art-footer {
     padding: var(--spacing-01);
@@ -340,13 +376,13 @@ INVOICE CSS
 fieldset {
     margin-block: var(--spacing-04);
     flex: 0 0 calc(50% - var(--spacing-08));
-    border: 1px dashed var(--color-primary-200);
+    border: 1px dashed var(--flow-color-primary-200);
     padding: var(--spacing-01);
 }
 legend {
     cursor: default;
     font-weight: 600;
-    background-color: var(--color-primary-050);
+    background-color: var(--flow-color-primary-050);
     padding: var(--spacing-01);
     border-radius: var(--radius-small);
     font-size: var(--font-text-small);
@@ -380,19 +416,19 @@ Footer CSS
     display: flex;
     align-items: center;
     margin-block: var(--spacing-02);
-    border-top: 1px solid var(--color-primary-100);
-    border-bottom: 1px solid var(--color-primary-100);
+    border-top: 1px solid var(--flow-color-primary-100);
+    border-bottom: 1px solid var(--flow-color-primary-100);
 }
 .social-title, .social-link{
-    color: var(--color-primary-500);
+    color: var(--flow-color-primary-500);
 }
 .social-link:hover {
-    fill: var(--color-accent);
-    color: var(--color-accent);
+    fill: var(--flow-color-accent);
+    color: var(--flow-color-accent);
 }
 .social-link {
     cursor: pointer;
-    fill: var(--color-primary-500);
+    fill: var(--flow-color-primary-500);
     font-size: var(--font-text-normal);
     display: flex;
     align-items: center;
@@ -413,11 +449,11 @@ Footer CSS
 }
 .footer-nav-link {
     font-size: var(--font-text-small);
-    color: var(--color-primary-500);
+    color: var(--flow-color-primary-500);
 }
 .footer-nav-link:hover {
     transition: 200ms;
-    color: var(--color-accent);
+    color: var(--flow-color-accent);
 }
 .footer-group {
     line-height: 2;
@@ -428,7 +464,7 @@ Footer CSS
 }
 .copywrite > p {
     font-size: var(--font-text-small);
-    color: var(--color-primary-500);
+    color: var(--flow-color-primary-500);
 }
 /* -------------------- 
 Navigation Interface CSS
@@ -445,8 +481,8 @@ Navigation Interface CSS
     gap: var(--spacing-01);
 }
 .interface-button:hover {
-    color: var(--color-accent);
-    fill: var(--color-accent);
+    color: var(--flow-color-accent);
+    fill: var(--flow-color-accent);
 }
 
 /* -------------------- 
@@ -455,7 +491,7 @@ WorkStation Side Menu CSS
 
 .workstation-side-menu {
     position: absolute;
-    background: var(--color-primary-050);
+    background: var(--flow-color-primary-050);
     transition: 300ms ease-in;
     min-height: 100vh;
     width: 64px;
@@ -465,7 +501,7 @@ WorkStation Side Menu CSS
 }
 .workstation-link {
     font-size: var(--font-text-normal);
-    color: var(--color-primary-700);
+    color: var(--flow-color-primary-700);
 }
 .workstation-side-button {
     display: grid;
@@ -480,7 +516,7 @@ WorkStation Side Menu CSS
 .workstation-icon {
     height: 2.4rem;
     padding: 2rem;
-    fill: var(--color-primary-900);
+    fill: var(--flow-color-primary-900);
 }
 .workstation-ui {
     overflow-x: hidden;
@@ -499,19 +535,19 @@ WorkStation Side Menu CSS
     padding: var(--spacing-01);
 }
 .options-list > div:hover, .workstation-side-button:hover {
-    background-color: var(--color-accent-100);
+    background-color: var(--flow-color-accent-100);
 }
 .options-list {
     position: absolute;
-    background-color: var(--color-primary-000);
+    background-color: var(--flow-color-primary-000);
     padding: var(--spacing-01);
     display: none;
-    border: 1px solid var(--color-primary-200);
+    border: 1px solid var(--flow-color-primary-200);
     min-width: 25.6rem;
     margin-top: var(--spacing-01);
 }
 .priority-option {
-    fill: var(--color-accent);
+    fill: var(--flow-color-accent);
     height: 24px;
     display: flex;
     align-items: center;
@@ -521,7 +557,7 @@ WorkStation Side Menu CSS
 }
 .workstations-link {
     white-space: nowrap;
-    color: var(--color-primary-900);
+    color: var(--flow-color-primary-900);
 }
 .prevent-select, .options-list > div, .select-options  {
     -webkit-user-select: none;
@@ -536,7 +572,7 @@ WorkStation Side Menu CSS
 TaskManager Create View
 -------------------- */
 .task-description {
-    border: 1px solid var(--color-primary-200);
+    border: 1px solid var(--flow-color-primary-200);
 
     padding: var(--spacing-01);
     height: 12.8rem;
@@ -573,7 +609,7 @@ TaskManager Create View
     cursor: pointer;
 }
 .dropdown-list > span:hover {
-    background-color: var(--color-accent-100);
+    background-color: var(--flow-color-accent-100);
 }
 .select-options > div {
     display: none;
@@ -585,8 +621,8 @@ TaskManager Create View
 .dropdown-list {
     display: none;
     margin-top: var(--spacing-01);
-    border: 1px solid var(--color-primary-100);
-    background-color: var(--color-primary-000);
+    border: 1px solid var(--flow-color-primary-100);
+    background-color: var(--flow-color-primary-000);
     margin: var(--spacing-01);
     margin-left: calc (-1 * var(--spacing-01));
 }
@@ -599,7 +635,7 @@ Modal TASKS CSS
 -------------------- */
 
 .interface-modal {
-    background-color: var(--color-primary-900-40);
+    background-color: var(--flow-color-primary-900-40);
     height: 100vh;
     width: 100vw;
     position: fixed;
@@ -609,7 +645,7 @@ Modal TASKS CSS
 .wrapper-modal {
     padding: var(--spacing-02);
     margin: auto;
-    background: var(--color-primary-000);
+    background: var(--flow-color-primary-000);
 }
 .modal-navigation {
     padding: var(--spacing-02) 0;
@@ -619,7 +655,7 @@ Modal TASKS CSS
 }
 .hover-animation:hover {
     cursor: pointer;
-    fill: var(--color-accent);
+    fill: var(--flow-color-accent);
 }
 .button-icon  {
     display: flex;
@@ -632,14 +668,14 @@ Table TASKS CSS
 -------------------- */
 .table-header {
     padding: var(--spacing-01);
-    border-bottom: 1px solid var(--color-primary-200);
-    border-top: 1px solid var(--color-primary-200);
+    border-bottom: 1px solid var(--flow-color-primary-200);
+    border-top: 1px solid var(--flow-color-primary-200);
     font-size: var(--font-text-small);
-    color: var(--color-primary-900);
+    color: var(--flow-color-primary-900);
 }
 [role="cell"] {
     font-size: var(--font-text-small);
-    color: var(--color-primary-500);
+    color: var(--flow-color-primary-500);
 }
 .table-header, .table-row {
     display: grid;
@@ -660,7 +696,7 @@ HERO Large CSS
 -------------------- */
 
 .hero-large {
-    background-color: var(--color-primary-050);
+    background-color: var(--flow-color-primary-050);
     min-height: 60vh;
     display: grid;
     align-items: center;
@@ -674,6 +710,14 @@ DESKTOP CSS
 -------------------- */
 
 @media (min-width: 1024px) {
+    .headline > p {
+        font-size: var(--font-text-large);
+    }
+    .featured-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-10);
+    }
     .article-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;

@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom';
+import ButtonLink from './sub-components/ButtonLink'
+import HeadlineLarge from './sub-components/HeadlineLarge';
+import SectionWrapper from './sub-components/SectionWrapper';
 
 export default function HeroSectionLarge({ content }) {
     return (
-        <section className="hero-large">
-            <div className="wrapper">
-                <header>
-                    <h1>{content.title}</h1>
-                    <p>{content.subtitle}</p>
-                </header>
-                <Link to="/software/tasks" role="button" className="button-primary">
-                    {content.cta}
-                </Link>
+        <SectionWrapper className="hero-large">
+            <HeadlineLarge content={{...content}} />
+            <div className="margin-auto">
+                <ButtonLink className="button button-primary" url="/software/tasks" cta="Try Flow" />
+                <ButtonLink className="button button-secondary" url="/task-manager" cta="Find out more" />
             </div>
-        </section>
+        </SectionWrapper>
     );
 }

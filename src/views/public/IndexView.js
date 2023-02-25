@@ -1,5 +1,6 @@
 import HeroSectionLarge from '../../components/HeroSectionLarge';
 import ArticleSection from './components/ArticleSection';
+import ModuleFeatured from '../../components/ModuleFeatured';
 
 export default function IndexView() {
     return (
@@ -11,6 +12,7 @@ export default function IndexView() {
                     cta: 'Try Flow',
                 }}
             />
+            <ModuleFeatured />
             <ArticleSection />
         </>
     );
