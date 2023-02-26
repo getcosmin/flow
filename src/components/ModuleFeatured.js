@@ -6,7 +6,7 @@ import HeadlineLarge from './sub-components/HeadlineLarge';
 
 export default function ModuleFeatured() {
     return (
-        <SectionWrapper className={'featured'}>
+        <SectionWrapper main={'featured'} wrap={'wrapper'}>
             <HeadlineLarge
                 content={{
                     title: 'Optimize your workflow',

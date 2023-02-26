@@ -41,7 +41,7 @@
 
     --color-alert-red: rgb(200 60 60);
     --color-alert-yellow: rgb(200 60 60);
-    --color-alert-green: rgb(200 60 60);
+    --color-alert-green: rgb(60, 200, 100);
 
     --flow-color-accent: rgb(13, 15, 18);
     --flow-color-accent-100: rgb(13, 15, 18, 0.1);
@@ -91,8 +91,18 @@ h1 {
 }
 h2 {
     font-size: var(--font-heading2);
+    margin-block: var(--spacing-01) var(--spacing-02);
 }
-
+h3 {
+    font-size: var(--font-heading3);
+    margin-block: var(--spacing-01) var(--spacing-02);
+}
+section {
+    margin-block: var(--spacing-08);
+}
+section:first-of-type {
+    margin-block: 0;
+}
 label {
     font-size: var(--font-text-small);
     margin-bottom: 0.4rem;
@@ -101,7 +111,10 @@ body {
     margin:0;
 }
 button {
-    border: 1px solid transparent;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: var(--font-text-small);
 }
 input {
     border: none;
@@ -132,7 +145,9 @@ input, textarea, .select-options, .select-options,.task-select {
     list-style: none;
     padding-inline: 0;
 }
-
+* {
+    box-sizing: border-box;
+}
 .breadcrumb-list {
     font-size: var(--font-text-small);
     display: flex;
@@ -161,7 +176,7 @@ input, textarea, .select-options, .select-options,.task-select {
 }
 
 .wrapper {
-    margin-inline: var(--spacing-02);
+    margin: var(--spacing-02);
 }
 .wrapper-view {
     margin-right: var(--spacing-02);
@@ -212,8 +227,13 @@ input, textarea, .select-options, .select-options,.task-select {
     justify-content: center;
 }
 .auth-system {
+    display: grid;
+    gap: var(--spacing-04);
     justify-content: center;
     max-width: min(100vw, 960px);
+}
+.mt40 {
+    margin-top: var(--spacing-08);
 }
 .headline {
     margin-block: var(--spacing-06);
@@ -306,25 +326,66 @@ FEATURED Section CSS
 .featured-list {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-2);
+    gap: var(--spacing-02);
 }
 .feature-box {
     width: 100%;
+}
+.feature-icon {
+    height: 4rem;
+    width: 4rem;
+}
+
+/* --------------------
+DISPLAY Section CSS
+-------------------- */
+
+.display-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-02);
+    align-items: center;
+}
+.display-body > * {
+    flex: 0 0 100%;
+}
+.display-nav {
+    border-bottom: 1px solid var(--flow-color-primary-100);
+    margin-bottom: var(--spacing-04);
+}
+.display-nav > button {
+    padding: var(--spacing-02);
+}
+.display-nav-active {
+    border-bottom: 1px solid var(--flow-color-primary-900);
+    margin-bottom: -1px;
+    font-weight: 600;
+}
+.display-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 
 /* -------------------- 
 ARTICLE Section CSS
 -------------------- */
-.articles {
-    margin-block: var(--spacing-09);
-}
 .article-container {
     display: flex;
-    flex-wrap: wrap;
     gap: var(--spacing-02);
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+.article-container::-webkit-scrollbar {
+    display: none;
+}
+.article-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .card-art {
+    flex: 0 0 calc(100% - var(--spacing-01));
     border: 1px solid var(--flow-color-primary-100);
     border-radius: var(--radius-normal);
 }
@@ -389,6 +450,7 @@ legend {
     text-transform: uppercase;
 }
 .alert-danger, .alert-warning, .alert-success {
+    position: absolute;
     font-size: var(--font-text-small);
     margin-block: var(--spacing-01);
 }
@@ -704,12 +766,44 @@ HERO Large CSS
 header > p {
     margin-block: 0;
 }
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-02);
+}
+/* -------------------- 
+TABLETS CSS
+-------------------- */
+@media (min-width: 768px) {
+    .display-body > * {
+        flex: 0 0 calc(50% - var(--spacing-04));
+    }
+    .display-body {
+        gap: var(--spacing-08);
+        flex-wrap: nowrap;
+    }
+    .wrapper {
+        margin: var(--spacing-04);
+    }
+    .article-container {
+        gap: var(--spacing-04);
+    }
+    .card-art {
+        flex: 0 0 calc(50% - var(--spacing-02));
+    }
+    .feature-box {
+        flex: 0 0 calc(100% / 3 - var(--spacing-02));
+    }
+}
 
 /* -------------------- 
 DESKTOP CSS
 -------------------- */
 
 @media (min-width: 1024px) {
+    section {
+        margin-block: var(--spacing-09);
+    }
     .headline > p {
         font-size: var(--font-text-large);
     }
@@ -721,7 +815,7 @@ DESKTOP CSS
     .article-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: var(--spacing-10);
+        gap: var(--spacing-08);
     }
     .card-art-body, .card-art-footer {
         padding: var(--spacing-02);
@@ -740,7 +834,8 @@ DESKTOP CSS
         display: flex;
     }
     .wrapper {
-        margin-inline: var(--wrap-margin);
+        max-width: min(1440px, 80vw);
+        margin: auto;
     }
     .wrapper-view {
         margin-inline: var(--wrap-margin);
@@ -749,7 +844,5 @@ DESKTOP CSS
     .table-header, .table-row {
         grid-template-columns: 0.4fr 1fr 2fr 4fr 1fr 1fr 1fr 1fr;
     }
-    .wrapper {
-        margin-inline: var(--wrap-margin);
-    }
+
 }

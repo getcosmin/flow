@@ -1,6 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function AccountLoginView() {
+    const [ errorMessage, setErrorMessage ] = useState({
+        alert: null,
+        state: false,
+        className: null,
+    });
     const emailRef = useRef();
     const passwordRef = useRef();
 
@@ -16,9 +21,6 @@ export default function AccountLoginView() {
 
     async function loginUser(event) {
         event.preventDefault();
-
-        console.log(emailRef.current.value);
-        console.log(passwordRef.current.value);
 
         const login = {
             email: emailRef.current.value,
@@ -37,26 +39,40 @@ export default function AccountLoginView() {
 
         if (data.status === 'error') {
             console.log('Attempt has failed.');
+            setErrorMessage((prevState) => prevState = {
+                alert: 'Loggin attempt has failed.',
+                className: 'alert-danger',
+                state: true,
+            });
         } else {
             console.log('Success');
+            setErrorMessage((prevState) => prevState = {
+                alert: 'Loggin was successful.',
+                className: 'alert-success',
+                state: true,
+            });
         }
     }
 
     return (
         <section className='auth'>
             <div className='auth-system wrapper'>
-            <h1>Account Login</h1>
-            <form id="form">
-                <div>
-                    <label for="email">Email Adress:</label>
-                    <input ref={emailRef} className='fill-width' type="email" id="email"/>
-                </div>
-                <div>
-                    <label for="password">Password:</label>
-                    <input ref={passwordRef} className='fill-width' type="password" id="password"/>
-                </div>
-                <button onClick={loginUser} className="button-primary" type="submit">Login</button>
-            </form>
+                <h1>Account Login</h1>
+                <form id="form">
+                    <div>
+                        <label htmlFor="email">Email Adress:</label>
+                        <input ref={emailRef} className='fill-width' type="email" id="email"/>
+                    </div>
+                    <div>
+                        <label htmlFor="password">Password:</label>
+                        <input ref={passwordRef} className='fill-width' type="password" id="password"/>
+                    </div>
+                    { errorMessage?.state ?
+                        <p className={errorMessage.className}>{errorMessage.alert}</p>
+                        : null
+                    }
+                    <button onClick={loginUser} className="button button-primary mt40" type="submit">Login</button>
+                </form>
             </div>
         </section>
     );

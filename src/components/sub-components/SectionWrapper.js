@@ -1,7 +1,7 @@
-export default function SectionWrapper({ className, children }) {
+export default function SectionWrapper({ main, wrap, children }) {
     return (
-        <section className={className}>
-            <div className="wrapper">
+        <section className={main}>
+            <div className={wrap}>
                 {children}
             </div>
         </section>

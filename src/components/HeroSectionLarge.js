@@ -5,9 +5,9 @@ import SectionWrapper from './sub-components/SectionWrapper';
 
 export default function HeroSectionLarge({ content }) {
     return (
-        <SectionWrapper className="hero-large">
+        <SectionWrapper main="hero-large" wrap="wrapper">
             <HeadlineLarge content={{...content}} />
-            <div className="margin-auto">
+            <div className="hero-cta">
                 <ButtonLink className="button button-primary" url="/software/tasks" cta="Try Flow" />
                 <ButtonLink className="button button-secondary" url="/task-manager" cta="Find out more" />
             </div>

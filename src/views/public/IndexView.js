@@ -1,6 +1,7 @@
 import HeroSectionLarge from '../../components/HeroSectionLarge';
 import ArticleSection from './components/ArticleSection';
 import ModuleFeatured from '../../components/ModuleFeatured';
+import ModuleDisplay from './components/ModuleDisplay';
 
 export default function IndexView() {
     return (
@@ -13,6 +14,7 @@ export default function IndexView() {
                 }}
             />
             <ModuleFeatured />
+            <ModuleDisplay/>
             <ArticleSection />
         </>
     );
