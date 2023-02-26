@@ -91,7 +91,7 @@ h1 {
 }
 h2 {
     font-size: var(--font-heading2);
-    margin-block: var(--spacing-01) var(--spacing-02);
+    margin-block: var(--spacing-01);
 }
 h3 {
     font-size: var(--font-heading3);
@@ -145,7 +145,7 @@ input, textarea, .select-options, .select-options,.task-select {
     list-style: none;
     padding-inline: 0;
 }
-* {
+div {
     box-sizing: border-box;
 }
 .breadcrumb-list {
@@ -176,7 +176,7 @@ input, textarea, .select-options, .select-options,.task-select {
 }
 
 .wrapper {
-    margin: var(--spacing-02);
+    margin: 0 var(--spacing-02);
 }
 .wrapper-view {
     margin-right: var(--spacing-02);
@@ -238,9 +238,6 @@ input, textarea, .select-options, .select-options,.task-select {
 .headline {
     margin-block: var(--spacing-06);
     text-align: center;
-}
-.headline > h2 {
-    margin-block-end: 0;
 }
 .headline > p {
     font-size: var(--font-text-normal);
@@ -326,7 +323,7 @@ FEATURED Section CSS
 .featured-list {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-02);
+    gap: var(--spacing-04);
 }
 .feature-box {
     width: 100%;
@@ -341,13 +338,24 @@ DISPLAY Section CSS
 -------------------- */
 
 .display-body {
+    background-color: var(--flow-color-primary-050);
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-02);
     align-items: center;
 }
 .display-body > * {
     flex: 0 0 100%;
+}
+.display-head {
+    display: grid;
+    gap: var(--spacing-04);
+    padding: var(--spacing-02);
+}
+.display-container {
+    display: grid;
+}
+.display-container > div {
+    grid-area: 1 / 1;
 }
 .display-nav {
     border-bottom: 1px solid var(--flow-color-primary-100);
@@ -775,12 +783,12 @@ header > p {
 TABLETS CSS
 -------------------- */
 @media (min-width: 768px) {
-    .display-body > * {
-        flex: 0 0 calc(50% - var(--spacing-04));
-    }
     .display-body {
-        gap: var(--spacing-08);
-        flex-wrap: nowrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .display-head {
+        padding: var(--spacing-04);
     }
     .wrapper {
         margin: var(--spacing-04);
@@ -792,7 +800,7 @@ TABLETS CSS
         flex: 0 0 calc(50% - var(--spacing-02));
     }
     .feature-box {
-        flex: 0 0 calc(100% / 3 - var(--spacing-02));
+        flex: 0 0 calc(100% / 3 - var(--spacing-03));
     }
 }
 
@@ -845,4 +853,10 @@ DESKTOP CSS
         grid-template-columns: 0.4fr 1fr 2fr 4fr 1fr 1fr 1fr 1fr;
     }
 
+}
+.tab-hide {
+    z-index: -1;
+}
+.tab-active {
+    z-index: 1;
 }
