@@ -1,4 +1,5 @@
-export default function TaskManagerInterface({ toggleCreateTaskWindow }) {
+export default function TaskManagerController({ toggleCreateTaskWindow }) {
+    console.count('TaskManagerController Rendered: ');
     return (
         <nav className="navigation-interface">
             <div className="interface-button" role="button" onClick={toggleCreateTaskWindow}>

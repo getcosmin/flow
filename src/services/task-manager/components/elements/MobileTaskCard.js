@@ -1,6 +1,6 @@
-import LabelState from './widgets/LabelState';
-import WidgetDate from './widgets/WidgetDate';
-import './css/MobileCardTask.css';
+import LabelState from '../widgets/LabelState';
+import WidgetDate from '../widgets/WidgetDate';
+import '.././css/MobileCardTask.css';
 
 export default function MobileCardTask({ task }) {
     return (

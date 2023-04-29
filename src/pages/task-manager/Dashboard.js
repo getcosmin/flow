@@ -1,6 +1,7 @@
 import HeadlineSmall from '../../services/components/HeadlineSmall';
 import DashboardView from '../../services/dashboard/DashboardView';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import SoftwareGUI from '../../services/components/SoftwareGUI';
 
 export default function DashboardMainView() {
     useLocalStorage('tasks', [
@@ -26,11 +27,9 @@ export default function DashboardMainView() {
 
 
     return (
-        <section className="workview fill-width">
-            <div className="wrapper-view fill-width">
-                <HeadlineSmall title='Dashboard' />
-                <DashboardView />
-            </div>
-        </section>
+        <SoftwareGUI>
+            <HeadlineSmall title='Dashboard' />
+            <DashboardView />
+        </SoftwareGUI>
     );
 }

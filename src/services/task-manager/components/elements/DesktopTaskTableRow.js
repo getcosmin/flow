@@ -1,5 +1,4 @@
-export default function TaskManagerRow({ task }) {
-    console.log(task)
+export default function DesktopTaskTableRow({ task }) {
     return (
         <div className="table-row" role="row">
             <div role="cell">{task.id}</div>

@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Dashboard from './pages/task-manager/Dashboard';
-import Tasks from './pages/task-manager/Tasks';
+import TaskManagerSoftware from './services/task-manager/TaskManagerSoftware';
 
 import NavigationMain from './components/NavigationMain';
 
@@ -22,7 +22,7 @@ function App() {
             />
             <Route
               path="/tasks"
-              element= {<Tasks />}
+              element= {<TaskManagerSoftware />}
             />
           </Routes>
       </PortalSoftwareWrapper>

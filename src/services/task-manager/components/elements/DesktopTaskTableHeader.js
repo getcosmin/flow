@@ -1,4 +1,4 @@
-export default function TaskManagerRow() {
+export default function DesktopTaskTableHeader() {
     return (
         <div className="table-header" role="row">
             <div role="columnheader" aria-sort="none">ID</div>
