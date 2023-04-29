@@ -1,50 +1,35 @@
 // 01 - IMPORTING - React
-import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import useFetch from '../../hooks/useFetch';
 
-// 02 - IMPORTING - COMPONENTS
-import NavigationSideMenu from '../../components/NavigationSideMenu';
-import TaskManagerTable from './components/TaskManagerTable';
-import NavigationTaskManager from './components/TaskManagerInterface';
+// 02 - IMPORTING - CUSTOM HOOKS
+import useFetchTasks from './hooks/useFetchTasks';
+import useWindowToggle from './hooks/useWindowToggle';
+
+// 03 - IMPORTING - COMPONENTS
+import TaskManagerController from './components/TaskManagerController';
 import CreateTaskView from './components/CreateTaskView';
-import HeadlineSmall from '../components/HeadlineSmall';
+import TaskManagerDataView from './components/TaskManagerDataView';
 
 
-export default function TaskManagerMainView() {
-    const [hasCreateTaskView, setCreateTaskView] = useState(false);
-    const [viewTasks, setViewTasks] = useState([]);
+export default function TaskManagerMainView(props) {
+    const {hasCreateTaskView, toggleCreateTaskWindow} = useWindowToggle();
 
-    function toggleCreateTaskModal() {
-        console.log('Create Task');
-        hasCreateTaskView ? setCreateTaskView(false) : setCreateTaskView(true);
-        console.log(hasCreateTaskView);
-        document.body.classList.toggle('disable-scroll');
-    }
-
-        const tasksData = useFetch('/task-manager/view-tasks');
-
-        useEffect(() => {
-            setViewTasks(tasksData);
-        }, [tasksData]);
-
+    const {dataTasks} = useFetchTasks();
 
     return (
         <>
-        <section className="workview">
-            <NavigationSideMenu />
-            <div className="wrapper-view fill-width">
-                <NavigationTaskManager
-                    toggleCreateTaskModal={toggleCreateTaskModal}
-                 />
-                <HeadlineSmall title='View Tasks' />
-                <TaskManagerTable {...viewTasks} />
-            </div>
+        <section className="workview fill-width">
+            <TaskManagerController
+                toggleCreateTaskWindow={toggleCreateTaskWindow}
+            />
+            <TaskManagerDataView
+                dataTasks={dataTasks}
+            />
         </section>
 
         { hasCreateTaskView && createPortal(
             <CreateTaskView
-                toggleCreateTaskModal={toggleCreateTaskModal}
+                toggleCreateTaskWindow={toggleCreateTaskWindow}
             />,
             document.body)
         }

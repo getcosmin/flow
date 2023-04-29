@@ -1,7 +1,7 @@
-export default function NavigationTaskManager({ toggleCreateTaskModal }) {
+export default function TaskManagerInterface({ toggleCreateTaskWindow }) {
     return (
         <nav className="navigation-interface">
-            <div className="interface-button" role="button" onClick={toggleCreateTaskModal}>
+            <div className="interface-button" role="button" onClick={toggleCreateTaskWindow}>
             <svg height="24" width="24">
                 <path d="M11 17h2v-4h4v-2h-4V7h-2v4H7v2h4Zm1
                 5q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2

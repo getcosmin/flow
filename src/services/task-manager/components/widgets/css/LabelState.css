@@ -1,0 +1,20 @@
+.label {
+    border-radius: var(--radius-small);
+    box-sizing: border-box;
+    padding: 0.8rem 1.2rem;
+    font-size: var(--font-text-xs);
+    width: min-content;
+    display: flex;
+    align-items: center;
+    line-height: 1;   
+}
+
+.label__status-completed {
+    border: 1px solid var(--color-alert-green);
+    background-color: var(--color-alert-green-100);
+}
+
+.label__status-pending {
+    border: 1px solid var(--color-alert-yellow);
+    background-color: var(--color-alert-yellow-100);
+}

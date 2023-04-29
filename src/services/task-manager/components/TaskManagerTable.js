@@ -1,21 +1,35 @@
 import TaskManagerTableRow from './elements/TaskManagerTableRow';
 import TaskManagerTableHeader from './elements/TaskManagerTableHeader';
-import TaskManagerTableHeaderMobile from './elements/TaskManagerTableHeaderMobile';
-import TaskManagerTableRowMobile from './elements/TaskManagerTableRowMobile';
+import MobileCardTask from './MobileCardTask';
 
-export default function TaskManagerTable({ viewTasks }) {
+export default function TaskManagerTable({ dataTasks }) {
     return (
         <div role="table">
-            <TaskManagerTableHeader />
-            { viewTasks ?
-                viewTasks.map((task) => {
-                    <TaskManagerTableRow
-                        key={task.id}
-                        content={{...task}}
-                    />;
-                })
-                : <p>There is no data to display from the SERVER.</p>
+            { window.innerWidth > 1024 ?
+                <TaskManagerTableHeader />
+                : null
             }
+            { dataTasks ?
+                window.innerWidth > 1024 ?
+                    dataTasks.map((task) => {
+                        return (
+                            <TaskManagerTableRow
+                                key={task.id}
+                                task={{...task}}
+                            />
+                        );
+                    })
+                    :
+                    dataTasks.map((task) => {
+                        return (
+                            <MobileCardTask
+                                key={task.id}
+                                task={{...task}}
+                            />
+                        );
+                    })
+                    : <p>No data from the Server.</p>
+        }
     </div>
     );
 }

@@ -9,14 +9,14 @@
     --spacing-08: 6.4rem;
     --spacing-09: 8.0rem;
     --spacing-10: 12.8rem;
-    
+
     --button-pading: 1.2rem 2.4rem ;
 
     --font-primary: 'Inter';
 
 
     --color-flow-bg-success: rgb(255, 60, 60);
-    --color-flow-bg-danger: rgb(255, 60, 60); 
+    --color-flow-bg-danger: rgb(255, 60, 60);
     --color-flow-bg-warning: rgb(255, 200, 60);
     --color-flow-bg-note: rgb(255, 60, 60);
 
@@ -37,25 +37,21 @@
     --flow-color-primary-900-60: rgb(13 15 18 / 60%);
     --flow-color-primary-900-40: rgb(13 15 18 / 40%);
 
-    --flow-weight-title: 500;
+    --flow-weight-title: 600;
 
     --color-alert-red: rgb(200 60 60);
-    --color-alert-yellow: rgb(255, 180, 30);
-    --color-alert-yellow-100: rgb(255, 180, 30, 0.1);
+    --color-alert-yellow: rgb(200 60 60);
     --color-alert-green: rgb(60, 200, 100);
-    --color-alert-green-100: rgb(60, 200, 100, 0.1);
 
     --flow-color-accent: rgb(40, 100, 255, 1);
     --flow-color-accent-100: rgb(40, 100, 255, 0.1);
 
     --font-heading1: clamp(2.8rem, 2.4rem + 1vw, 4.8rem);
     --font-heading2: clamp(2.8rem, 2.4rem + 1vw, 4.8rem);
-    --font-heading3-xl: clamp(2.4rem, 2.4rem + 2vw, 2.8rem);
     --font-heading3: clamp(1.6rem, 1.6rem + 0.2vw, 2rem);
-    --font-heading4: clamp(1.6rem, 1.6rem + 0.2vw, 1.8rem);
+    --font-heading4: clamp(2.0rem, 2.0rem + 1vw, 4.0rem);
     --font-heading5: clamp(1.6rem, 1.6rem + 1vw, 2.4em);
     --font-heading6: clamp(1.4rem, 1.4rem + 1vw, 1.8rem);
-    --font-text-xs: 1.2rem;
     --font-text-small: 1.4rem;
     --font-text-normal: 1.6rem;
     --font-text-large: 1.8rem;
@@ -71,7 +67,7 @@
     --icon-size-huge: 4.8rem;
 
     --wrap-margin: 8rem;
-    
+
     --radius-small: 0.2rem;
     --radius-normal: 0.4rem;
 }
@@ -100,10 +96,6 @@ h3 {
     font-size: var(--font-heading3);
     margin-block: var(--spacing-01) var(--spacing-02);
 }
-h4 {
-    font-size: var(--font-heading4);
-    margin-block: var(--spacing-01) var(--spacing-02);
-}
 section {
     margin-block: var(--spacing-08);
 }
@@ -119,23 +111,10 @@ body {
 }
 button, .button {
     background: transparent;
-    color: var(--color-flow-primary-900);
     min-width: 16.4rem;
     border: 0;
     cursor: pointer;
     font-size: var(--font-text-small);
-}
-
-.button-expand {
-    min-width: 4.8rem;
-    width: 4.8rem;
-    height: 4.8rem;
-}
-[data-show="false"] {
-    display: none;
-}
-[data-show="true"] {
-    display: block;
 }
 input {
     border: none;
@@ -201,13 +180,14 @@ div {
     margin: 0 var(--spacing-02);
 }
 .wrapper-view {
-    margin: 0 var(--spacing-02);
+    margin-right: var(--spacing-02);
+    margin-left: 7.2rem;
     min-height: 100vh;
 }
 .margin-auto {
     margin: auto;
 }
-.text-center {  
+.text-center {
     text-align: center;
 }
 .input {
@@ -279,9 +259,6 @@ div {
 .auth-footer-terms > p {
     font-size: var(--font-text-small);
 }
-.portal-software {
-    display: flex;
-}
 .auth-sign {
     font-size: var(--font-text-small);
 }
@@ -289,21 +266,17 @@ div {
     margin-top: var(--spacing-08);
 }
 .headline {
-    margin-block: var(--spacing-07) var(--spacing-05);
+    margin-block: var(--spacing-06);
     text-align: center;
 }
 .headline > p {
     font-size: var(--font-text-normal);
 }
-.hero-headline {
-    text-align: center;
-    margin-block: 0 var(--spacing-03);
-}
 .headline-small {
     font-size: var(--font-heading5);
-    margin-block: var(--spacing-02) var(--spacing-02);
+    margin-block: var(--spacing-02) var(--spacing-04);
 }
-/* -------------------- 
+/* --------------------
 NAVBAR
 -------------------- */
 .navigation {
@@ -386,7 +359,6 @@ FEATURED Section CSS
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-04);
-    text-align: center;
 }
 .feature-box {
     width: 100%;
@@ -458,7 +430,7 @@ Widget Modal CSS
     padding: var(--spacing-06) var(--spacing-03) var(--spacing-03);
 }
 .widget-container {
-    display: none;
+    display: flex;
     justify-content: flex-end;
     position: sticky;
     opacity: 0;
@@ -467,11 +439,10 @@ Widget Modal CSS
     z-index: 100;
 }
 .widget-show {
-    display: flex;
     opacity: 1;
 }
 
-/* -------------------- 
+/* --------------------
 ARTICLE Section CSS
 -------------------- */
 .article-container {
@@ -526,7 +497,7 @@ ARTICLE Section CSS
     font-size: var(--font-heading3);
     margin-block: var(--spacing-01) var(--spacing-02);
 }
-/* -------------------- 
+/* --------------------
 INVOICE CSS
 -------------------- */
 .interface-group {
@@ -572,14 +543,14 @@ legend {
 .alert-success {
     color: var(--color-alert-green);
 }
-/* -------------------- 
+/* --------------------
 WorkView CSS
 -------------------- */
 .workview {
-    
+    display: flex;
 }
 
-/* -------------------- 
+/* --------------------
 Footer CSS
 -------------------- */
 
@@ -612,12 +583,8 @@ Footer CSS
 .footer-nav-brand {
     margin-block: var(--spacing-02);
 }
-.footer-header {
-    display: flex;
-    justify-content: space-between;
-}
 .footer-bottom {
-    display: block;
+    display: flex;
 }
 .footer-section {
     flex: 0 0 25%;
@@ -641,17 +608,15 @@ Footer CSS
     font-size: var(--font-text-small);
     color: var(--flow-color-primary-500);
 }
-/* -------------------- 
+/* --------------------
 Navigation Interface CSS
 -------------------- */
 .navigation-interface {
     display: flex;
-    border-bottom: 1px solid var(--flow-color-primary-100);
+    margin-block: var(--spacing-02);
 }
 .interface-button {
     font-size: var(--font-text-small);
-    border-right: 1px solid var(--flow-color-primary-100);
-    padding: 1.2rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -662,7 +627,7 @@ Navigation Interface CSS
     fill: var(--flow-color-accent);
 }
 
-/* -------------------- 
+/* --------------------
 WorkStation Side Menu CSS
 -------------------- */
 
@@ -686,19 +651,17 @@ WorkStation Side Menu CSS
     grid-template-columns: min-content 1fr;
 }
 .workstation-title {
+    margin-left: var(--spacing-08);
     text-transform: uppercase;
     font-size: var(--font-text-small);
 }
 .workstation-icon {
-    padding: 1.2rem;
+    height: 2.4rem;
+    padding: 2rem;
     fill: var(--flow-color-primary-900);
 }
 .workstation-ui {
-    margin-block: var(--spacing-04);
     overflow-x: hidden;
-}
-.workstation-ui > a, .workstation-ui > h2 {
-    padding: 0 var(--spacing-04);
 }
 .select-options {
     cursor: pointer;
@@ -740,14 +703,14 @@ WorkStation Side Menu CSS
 }
 .prevent-select, .options-list > div, .select-options  {
     -webkit-user-select: none;
-    -ms-user-select: none; 
-    user-select: none; 
- }
+    -ms-user-select: none;
+    user-select: none;
+}
 
 
 
 
-/* -------------------- 
+/* --------------------
 TaskManager Create View
 -------------------- */
 .task-description {
@@ -809,7 +772,7 @@ TaskManager Create View
     display: block;
 }
 
-/* -------------------- 
+/* --------------------
 Modal TASKS CSS
 -------------------- */
 
@@ -842,7 +805,7 @@ Modal TASKS CSS
     font-size: var(--font-text-small);
 }
 
-/* -------------------- 
+/* --------------------
 Table TASKS CSS
 -------------------- */
 .table-header {
@@ -869,65 +832,8 @@ Table TASKS CSS
     padding: var(--spacing-01);
 }
 
+
 /* --------------------
-COMPARISON Module CSS
--------------------- */
-
-.comparison-table {
-    width: 100%;
-    gap: var(--spacing-02);
-    display: flex;
-}
-.scroll-frame {
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-}
-.scroll-frame > div {
-    scroll-snap-align: start;
-}
-.product-card {
-    border: 1px solid var(--flow-color-primary-100);
-    border-radius: var(--radius-normal);
-    display: grid;
-    gap: var(--spacing-03);
-    flex: 0 0 100%;
-}
-.product-card-benefits {
-    font-size: var(--font-text-normal);
-    line-height: 2.4;
-}
-.product-card-title {
-    padding: var(--spacing-02) 0;
-    font-weight: 500;
-    border-bottom: 1px solid var(--flow-color-primary-100);
-    margin-block: 0;
-}
-.bb-highlight {
-    border-bottom: 1px solid var(--flow-color-primary-900);
-}
-.product-card-price {
-    font-size: var(--font-heading3-xl);
-    margin-block: 0 var(--spacing-01);
-    font-weight: 600;
-    line-height: 1;
-}
-.card-highlight {
-    border: 1px solid var(--flow-color-primary-900);
-}
-.product-card-footer {
-    margin: auto;
-    margin-block-end: var(--spacing-04);
-}
-.product-card-note {
-    font-size: var(--font-text-small);
-    color: var(--flow-color-accent);
-}
-.product-card-subtitle {
-    margin-block: 0 var(--spacing-01);
-}
-
-/* -------------------- 
 HERO Large CSS
 -------------------- */
 
@@ -963,7 +869,7 @@ Dashboard CSS
 }
 .dashboard-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-02);
 }
 .card-landscape {
@@ -980,8 +886,7 @@ Dashboard CSS
     width: 4rem;
     background-color: rgb(40, 100, 255, 0.6);
 }
-
-/* -------------------- 
+/* --------------------
 TABLETS CSS
 -------------------- */
 @media (min-width: 768px) {
@@ -1006,50 +911,11 @@ TABLETS CSS
     }
 }
 
-/* -------------------- 
+/* --------------------
 DESKTOP CSS
 -------------------- */
 
-@media (min-width: 1024px) {  
-    .headline-small {
-        font-size: var(--font-heading5);
-        margin-block: var(--spacing-02) var(--spacing-04);
-    }
-    .dashboard-container {
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--spacing-08);
-    }
-    .workstation-side-menu {
-        position: relative;
-        width: max(340px, 18vw);
-    }
-    .product-card {
-        gap: var(--spacing-05);
-    }
-    .scroll-frame {
-        overflow-x: inherit;
-    }
-    .product-card-title {
-        padding: var(--spacing-03) 0;
-    }
-    .headline {
-        margin-block: var(--spacing-08) var(--spacing-06);
-        text-align: center;
-    }
-    .comparison-table {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-08);
-    }
-    .footer-button {
-        display: none;
-    }
-    .footer-bottom {
-        display: flex;
-    }
-    .footer-group[data-show="false"] {
-        display: block;
-    }
+@media (min-width: 1024px) {
     .auth {
         padding-top: var(--spacing-08);
     }
@@ -1091,7 +957,7 @@ DESKTOP CSS
         margin: auto;
     }
     .wrapper-view {
-        margin-right: var(--spacing-02);
+        margin-inline: var(--wrap-margin);
         min-height: 100vh;
     }
     .table-header, .table-row {

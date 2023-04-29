@@ -1,0 +1,9 @@
+.date {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-01);
+}
+.date__time, .mobile-card__id {
+    color: var(--flow-color-primary-500);
+    font-size: var(--font-text-xs);
+}

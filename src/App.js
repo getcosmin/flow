@@ -1,41 +1,31 @@
 import { Route, Routes } from 'react-router-dom';
 
-import IndexView from './views/public/IndexView';
-import AccountLoginView from './views/AccountLoginView';
-import SoftwareMainView from './views/private/SoftwareMainView';
-import TaskManagerView from './views/private/TaskManagerView';
+import Dashboard from './pages/task-manager/Dashboard';
+import Tasks from './pages/task-manager/Tasks';
 
 import NavigationMain from './components/NavigationMain';
-import Footer from './components/Footer';
 
 import './assets/css/workstation.css';
+import PortalNavigationMenu from './components/PortalMenuNavigation';
+import PortalSoftwareWrapper from './components/PortalSoftwareWrapper';
 
 function App() {
   return (
     <>
       <NavigationMain />
-      <Routes>
-        <Route
-          path="/"
-          element= {<IndexView />}
-        />
-
-        <Route
-          path="/login"
-          element= {<AccountLoginView />}
-        />
-
-        <Route
-          path="/software"
-          element= {<SoftwareMainView />}
-        />
-
-        <Route
-          path="/software/tasks"
-          element= {<TaskManagerView />}
-        />
-      </Routes>
-      <Footer />
+      <PortalSoftwareWrapper>
+        <PortalNavigationMenu />
+          <Routes>
+            <Route
+              path="/"
+              element= {<Dashboard />}
+            />
+            <Route
+              path="/tasks"
+              element= {<Tasks />}
+            />
+          </Routes>
+      </PortalSoftwareWrapper>
     </>
   );
 }
