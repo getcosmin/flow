@@ -12,7 +12,7 @@ export default function DashboardMainView() {
             description: 'Prepare materials and plan budget for the campaign.',
             priority: 'High',
             state: true,
-            date: '11/11/2099',
+            endDate: '11/11/2099',
         },
         {
             id: '002',
@@ -21,7 +21,7 @@ export default function DashboardMainView() {
             description: 'Calculate bonus for each employee before the end of the month.',
             priority: 'Normal',
             state: false,
-            date: '11/11/2099',
+            endDate: '11/11/2099',
         },
     ]);
 

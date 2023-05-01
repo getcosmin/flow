@@ -1,16 +1,14 @@
 import HeadlineSmall from '../../components/HeadlineSmall';
 import TaskManagerTable from './TaskManagerTable';
-import useFetchTasks from '../hooks/useFetchTasks';
+import { useContext } from 'react';
+import { TaskManagerGlobalStateContext } from '../global-state/TaskManagerGlobalStateContext';
 
-export default function TaskManagerDataView({ }) {
-    const {dataTasks} = useFetchTasks();
+export default function TaskManagerDataView(props) {
     console.count('TaskManagerDataView Rendered: ');
     return (
         <div className="wrapper-view fill-width">
             <HeadlineSmall title='View Tasks' />
-            <TaskManagerTable
-                dataTasks={[...dataTasks]}
-            />
+            <TaskManagerTable />
         </div>
     );
 }

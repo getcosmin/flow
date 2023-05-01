@@ -1,17 +1,20 @@
 import DesktopTaskTableRow from './elements/DesktopTaskTableRow';
 import DesktopTaskTableHeader from './elements/DesktopTaskTableHeader';
 import MobileTaskCard from './elements/MobileTaskCard';
+import { useContext, useEffect, useState } from 'react';
+import { TaskManagerGlobalStateContext } from '../global-state/TaskManagerGlobalStateContext';
 
-export default function TaskManagerTable({ dataTasks }) {
+export default function TaskManagerTable() {
+    const {viewTasks, deleteTask} = useContext(TaskManagerGlobalStateContext);
     return (
         <div role="table">
             { window.innerWidth > 1024 ?
                 <DesktopTaskTableHeader />
                 : null
             }
-            { dataTasks ?
+            { viewTasks ?
                 window.innerWidth > 1024 ?
-                    dataTasks.map((task) => {
+                    viewTasks.map((task) => {
                         return (
                             <DesktopTaskTableRow
                                 key={task.id}
@@ -20,11 +23,12 @@ export default function TaskManagerTable({ dataTasks }) {
                         );
                     })
                     :
-                    dataTasks.map((task) => {
+                    viewTasks.map((task) => {
                         return (
                             <MobileTaskCard
                                 key={task.id}
                                 task={{...task}}
+                                deleteTask={deleteTask}
                             />
                         );
                     })

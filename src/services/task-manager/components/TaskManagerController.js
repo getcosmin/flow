@@ -1,6 +1,13 @@
-export default function TaskManagerController({ toggleCreateTaskWindow }) {
+import { useContext } from 'react';
+import {TaskManagerGlobalStateContext} from '../global-state/TaskManagerGlobalStateContext';
+import CreateTaskView from '../modals/CreateTaskView';
+import { createPortal } from 'react-dom';
+
+export default function TaskManagerController({ }) {
+    const {hasCreateTaskView, toggleCreateTaskWindow} = useContext(TaskManagerGlobalStateContext);
     console.count('TaskManagerController Rendered: ');
     return (
+        <>
         <nav className="navigation-interface">
             <div className="interface-button" role="button" onClick={toggleCreateTaskWindow}>
             <svg height="24" width="24">
@@ -15,5 +22,12 @@ export default function TaskManagerController({ toggleCreateTaskWindow }) {
                 Create
             </div>
         </nav>
+        { hasCreateTaskView && createPortal(
+                <CreateTaskView
+                    toggleCreateTaskWindow={toggleCreateTaskWindow}
+                />,
+                document.body)
+            }
+        </>
     );
 }

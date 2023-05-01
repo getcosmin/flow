@@ -1,104 +1,44 @@
 import { useState, useRef } from 'react';
 import FormFieldset from '../../../components/FormFieldset';
-import InputSelectList from '../../../components/InputSelectList';
-import InputSelectPriority from '../../../components/InputSelectPriority';
 import InputType from '../../../components/InputType';
+import InputDropdownField from '../../components/InputDropdownField';
+import useLocalStorage from '../../../hooks/useLocalStorage';
 
 export default function CreateTaskModalView({ toggleCreateTaskWindow }) {
-    const [hasCategoryEnabled, setCategoryEnabled] = useState(false);
-    const [categoryValue, setCategoryValue] = useState('');
-
-    const [hasPriorityEnabled, setPriorityEnabled] = useState(false);
-    const [priorityValue, setPriorityValue] = useState('');
-    const [priorityIcon, setPriorityIcon] = useState('');
-
-
     const taskTitleRef = useRef('');
     const taskCategoryRef = useRef('');
     const taskDescriptionRef = useRef('');
     const taskPriorityRef = useRef('');
     const taskEndDateRef = useRef();
 
-    class TasksController {
-        static toggleCategory() {
-            TasksController.closeDropdowns();
-            hasCategoryEnabled ? setCategoryEnabled(false) : setCategoryEnabled(true);
+    function addNewTask() {
+        event.preventDefault();
+        const todayDate = new Date().toISOString().slice(0, 10);
+        function generateTaskID() {
+            const newNumber = Math.random();
+            const transformedNumber = Math.floor(newNumber * 1000000);
+            return transformedNumber;
         }
-        static togglePriority() {
-            TasksController.closeDropdowns();
-            hasPriorityEnabled ? setPriorityEnabled(false) : setPriorityEnabled(true);
-        }
-        static closeDropdowns() {
-            if (hasCategoryEnabled) {
-                setCategoryEnabled(false);
-            }
-            if (hasPriorityEnabled) {
-                setPriorityEnabled(false);
-            }
-        }
-        static selectPriority(event) {
-            setPriorityValue(event.target.innerText);
-            TasksController.closeDropdowns();
-            console.log(priorityValue);
-            switch (event.target.innerText) {
-                case 'High':
-                    setPriorityIcon('https://getcosmin.dev/assets/icons/icon-high-getcosmin.svg');
-                    break;
-                case 'Normal':
-                    setPriorityIcon('https://getcosmin.dev/assets/icons/icon-medium-getcosmin.svg');
-                    break;
-                case 'Low':
-                    setPriorityIcon('https://getcosmin.dev/assets/icons/icon-low-getcosmin.svg');
-                    break;
-                default:
-                    setPriorityIcon('');
-                    break;
-            }
-        }
-        static selectCategory(event) {
-            setCategoryValue(event.target.innerText);
-            TasksController.closeDropdowns();
-        }
-    }
-
-    class TaskManager {
-        static async createTask(event) {
-            const todayDate = new Date().toISOString().slice(0, 10);
-            event.preventDefault();
+        const taskID = generateTaskID();
             const newTask = {
+                id: `${taskID}`,
                 title: taskTitleRef.current.value,
                 category: taskCategoryRef.current.value,
                 description: taskDescriptionRef.current.value,
-                priority: taskPriorityRef.current.innerText,
+                priority: taskPriorityRef.current.value,
+                state: false,
                 startDate: todayDate,
                 endDate: taskEndDateRef.current.value,
             };
             console.log(newTask);
-            TaskManagerValidation.checkInputTitle(newTask.title);
-
-            const response = await fetch('/insert/new-task', {
-                method: 'POST',
-                body: JSON.stringify(newTask),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            const data = await response.json();
-
-            console.log(data);
-        }
+            const previousTasks = localStorage.getItem('tasks');
+            const previousTasksJSON = JSON.parse(previousTasks);
+            console.log(previousTasksJSON);
+            const newTaskArray = [...previousTasksJSON, newTask];
+            console.log(newTaskArray);
+            localStorage.setItem('tasks', JSON.stringify(newTaskArray));
+            toggleCreateTaskWindow();
     }
-
-    class TaskManagerValidation {
-        static checkInputTitle(variable) {
-            if (variable.length > 6) {
-                console.log('Input is valid.');
-            } else {
-                console.log('Input is not valid.');
-            }
-        }
-    }
-
 
     return (
         <section className="interface-modal">
@@ -120,18 +60,18 @@ export default function CreateTaskModalView({ toggleCreateTaskWindow }) {
                                 placeholder: 'Name the task...',
                            }}
                         />
-                        <InputSelectList
+                        <InputDropdownField
                             content={{
                                 inputID: 'task-category',
-                                label: 'Category',
-                                inputValue: categoryValue,
+                                label: 'Department',
                                 inputRef: taskCategoryRef,
-                                dropdownState: hasCategoryEnabled,
                             }}
-                            action={{
-                                toggleDropdown: TasksController.toggleCategory,
-                                selectDropdownValue: TasksController.selectCategory,
-                            }}
+                            inputValues={[
+                                'Marketing',
+                                'Human Resources',
+                                'DevOps',
+                                'Sales Team',
+                            ]}
                         />
                     </FormFieldset>
 
@@ -149,19 +89,17 @@ export default function CreateTaskModalView({ toggleCreateTaskWindow }) {
                             </div>
                         </div>
 
-                        <InputSelectPriority
+                        <InputDropdownField
                             content={{
                                 inputID: 'task-category',
-                                label: 'Category',
-                                inputValue: priorityValue,
+                                label: 'Priority',
                                 inputRef: taskPriorityRef,
-                                priorityIcon: priorityIcon,
-                                dropdownState: hasPriorityEnabled,
                             }}
-                            action={{
-                                toggleDropdown: TasksController.togglePriority,
-                                selectDropdownValue: TasksController.selectPriority,
-                            }}
+                            inputValues={[
+                                'High',
+                                'Medium',
+                                'Low',
+                            ]}
                         />
                     </FormFieldset>
 
@@ -181,7 +119,7 @@ export default function CreateTaskModalView({ toggleCreateTaskWindow }) {
                     </FormFieldset>
 
                     <div className="form-bottom-nav">
-                        <input type="submit" className="button-primary" onClick={TaskManager.createTask}/>
+                        <input type="submit" className="button-primary" onClick={addNewTask}/>
                     </div>
                 </form>
             </div>

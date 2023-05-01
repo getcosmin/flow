@@ -15,7 +15,7 @@
     justify-content: space-between;
 }
 .mobile-card__title {
-    grid-area: 2/1/3/3;
+    grid-area: 2/1/3/2;
     margin-block: 0;
 }
 .mobile-card__id, .mobile-card__date {
@@ -24,4 +24,16 @@
 }
 .mobile-card__id {
     text-align: right;
+}
+.mobile-card__footer {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-area: 3/1/3/3;
+}
+.mobile-card__delete {
+    justify-content: right;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-01);
+    min-width: fit-content;
 }

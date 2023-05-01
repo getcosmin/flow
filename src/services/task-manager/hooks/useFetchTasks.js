@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export default function useFetchTasks() {
+    console.log(hasCreateTaskView)
     const [viewTasks, setViewTasks] = useState([]);
 
     useEffect(async () => {
